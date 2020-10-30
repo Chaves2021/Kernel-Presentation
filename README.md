@@ -7,7 +7,10 @@ Repo with the content of my kernel exploit presentation
 
 Build the kernel, busybox, and demo modules (need to add the modules yet):
 
-<pre><code>$ ./build.sh</code></pre>
+* If you use Debian/Ubuntu based distro
+<pre><code>$ ./ubuntu_build.sh</code></pre>
+* If you use Arch based distro
+<pre><code>$ ./arch_build.sh</code></pre>
 
 Run the kernel:
 
