@@ -2,6 +2,7 @@
 
 export KERNEL_VERSION=5.4
 export BUSYBOX_VERSION=1.32.0
+MAKE_OPTS="-j9"
 
 #
 # dependencies
@@ -48,7 +49,7 @@ echo "CONFIG_DEBUG_FS=y" >> linux-$KERNEL_VERSION/.config
 echo "CONFIG_DEBUG_INFO_DWARF4=y" >> linux-$KERNEL_VERSION/.config
 echo "CONFIG_DEBUG_INFO_BTF=y" >> linux-$KERNEL_VERSION/.config
 echo "CONFIG_FRAME_POINTER=y" >> linux-$KERNEL_VERSION/.config
-make -C linux-$KERNEL_VERSION -j16 bzImage
+make -C linux-$KERNEL_VERSION $MAKE_OPTS bzImage
 
 #
 # Busybox
@@ -61,7 +62,7 @@ wget -q -c https://busybox.net/downloads/busybox-$BUSYBOX_VERSION.tar.bz2
 echo "[+] Building busybox..."
 make -C busybox-$BUSYBOX_VERSION defconfig
 sed -i 's/# CONFIG_STATIC is not set/CONFIG_STATIC=y/g' busybox-$BUSYBOX_VERSION/.config
-make -C busybox-$BUSYBOX_VERSION -j16
+make -C busybox-$BUSYBOX_VERSION $MAKE_OPTS
 make -C busybox-$BUSYBOX_VERSION install
 
 #
