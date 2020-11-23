@@ -9,7 +9,7 @@ MAKE_OPTS="-j9"
 #
 echo "[+] Checking / installing dependencies..."
 sudo pacman -Syq
-sudo pacman -Sq bison flex libelf cpio base-devel openssl lib32-openssl qemu
+sudo pacman -Sq bison flex libelf cpio base-devel openssl lib32-openssl qemu bc
 
 #
 # linux kernel
