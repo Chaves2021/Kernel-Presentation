@@ -20,5 +20,6 @@ Welcome to Mono Kernel :)
 EOF
 chmod 600 /flag
 chown 0.0 /flag
-/bin/sh
-#exec su -l ctf
+insmod make_root.ko
+exec su -l ctf
+#/bin/sh
