@@ -55,6 +55,7 @@ struct proc_dir_entry *proc_entry = NULL;
 int init_module(void)
 {
     	proc_entry = proc_create("pwn-college-root", 0666, NULL, &fops);
+	printk(KERN_INFO "Created /proc/pwn-college-root interface");
   	return 0;
 }
 
